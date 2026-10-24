@@ -1,0 +1,4 @@
+mediapipe>=0.10.14
+opencv-python>=4.9
+PySide6>=6.6
+numpy>=1.26

@@ -1,0 +1,18 @@
+[project]
+name = "tirnak-uyarici"
+version = "0.1.0"
+description = "El ağza gidince ekranda uyarı gösteren masaüstü uygulaması"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "mediapipe>=0.10.14",
+    "opencv-python>=4.9",
+    "PySide6>=6.6",
+    "numpy>=1.26",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-cov>=5", "pyinstaller>=6.5"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

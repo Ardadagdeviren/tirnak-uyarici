@@ -1,121 +1,89 @@
 # Tırnak Uyarıcı
 
-Bilgisayar başındayken kamerayı izler; elin ağzına gidip yarım saniye kadar orada kalırsa
-ekran kırmızı parlar ve **"Elini ağzından çek!"** uyarısı çıkar. Uyarı tüm pencerelerin
-üstünde görünür ama tıklamaları engellemez, yani çalışmanı bölmez.
+Bilgisayar başında çalışırken farkında olmadan tırnak mı yiyorsun? Tırnak Uyarıcı kameranla
+seni izler. Elin ağzına gittiği anda ekran kırmızı yanıp söner ve **"Elini ağzından çek!"**
+yazısı çıkar.
 
-Görüntü hiçbir yere gönderilmez ve kaydedilmez; tüm işlem bilgisayarında yapılır.
+- Uyarı açık olan her şeyin üstünde görünür, ama işini bölmez; tıklamaya ve yazmaya devam edebilirsin.
+- Kamera görüntün hiçbir yere gönderilmez, kaydedilmez. Her şey kendi bilgisayarında kalır.
+- Saatin yanında küçük bir simge olarak sessizce çalışır.
 
 ---
 
-## Windows'ta kurulum
+## Kurulum
 
-Kurulum dört adım: Python'u kur, `build_windows.bat`'ı çalıştır, exe'ye kısayol oluştur,
-otomatik başlatmayı aç. `build_windows.bat` **yalnızca bir kez** çalıştırılır; sonrasında
-program her zaman exe'den (ya da kısayolundan) açılır.
+Kurulum yalnızca bir kez yapılır, yaklaşık 10 dakika sürer.
 
-### 1. Python'u kur (bir kez)
+### 1. Python'u kur
 
-[python.org](https://www.python.org/downloads/windows/) adresinden **Python 3.12** indirip kur.
-Kurulumun ilk ekranında **"Add python.exe to PATH"** kutusunu mutlaka işaretle.
+[python.org](https://www.python.org/downloads/windows/) adresinden **Python 3.12**'yi indirip kur.
 
-### 2. `build_windows.bat` ile exe'yi oluştur
+> Kurulumun ilk ekranında **"Add python.exe to PATH"** kutusunu mutlaka işaretle.
 
-1. Bu sayfada **Code** → **Download ZIP** ile projeyi indir.
-2. Zip'e sağ tıkla → **Tümünü ayıkla…** → örneğin `C:\Programlar\TirnakUyarici` klasörüne çıkar.
-   > Zip'in içinden çalıştırma; önce mutlaka klasöre çıkar.
+### 2. Programı oluştur
+
+1. Bu sayfanın üstündeki yeşil **Code** düğmesine, ardından **Download ZIP**'e tıkla.
+2. İnen dosyaya sağ tıkla → **Tümünü ayıkla…** ile bir klasöre çıkar
+   (örneğin `C:\Programlar\TirnakUyarici`).
 3. Çıkan klasördeki **`build_windows.bat`** dosyasına çift tıkla.
-4. Pencere adım adım `[1/5] … [5/5]` ilerler; ilk seferde paketler indiği için birkaç dakika sürer.
-   Sonunda **"HAZIR"** yazar ve `dist\TirnakUyarici` klasörü kendiliğinden açılır.
-   İçinde **`TirnakUyarici.exe`** vardır.
+4. Siyah bir pencere açılır ve birkaç dakika çalışır. Bitince **HAZIR** yazar ve içinde
+   **`TirnakUyarici.exe`** bulunan bir klasör kendiliğinden açılır.
 
-Bir sorun olursa pencere kapanmaz ve nedenini yazar (Python yok, zip çıkarılmamış,
-antivirüs exe'yi silmiş vb.). O ekranın görüntüsünü göndermen yeterli.
+Bu adımı bir daha yapman gerekmez.
 
-### 3. Kısayol oluştur ve istediğin yere taşı
+### 3. Kısayol oluştur
 
-1. `dist\TirnakUyarici` klasöründeki **`TirnakUyarici.exe`**'ye sağ tıkla →
-   **Diğer seçenekleri göster** → **Kısayol oluştur**.
-2. Oluşan kısayolu istediğin yere taşı: masaüstü, görev çubuğu, Başlat menüsü…
-   Bundan sonra programı hep bu kısayoldan açarsın.
+1. **`TirnakUyarici.exe`**'ye sağ tıkla → **Diğer seçenekleri göster** → **Kısayol oluştur**.
+2. Oluşan kısayolu istediğin yere taşı: masaüstü, görev çubuğu…
 
-> Exe'yi tek başına klasörün dışına taşıma; yanındaki `_internal` klasörüne ihtiyaç duyar.
-> Taşımak istediğin şey **kısayol** olsun.
+Programı artık hep bu kısayoldan açarsın.
 
-İlk açılışta **"Windows bilgisayarınızı korudu"** mavi ekranı çıkarsa: **Ek bilgi** →
-**Yine de çalıştır** (program imzalı olmadığı için Windows bir kez böyle uyarır).
-Açılınca sağ alttaki saatin yanında kırmızı yuvarlak bir simge belirir; görünmüyorsa
-**^** (gizli simgeler) okuna tıkla.
+> `TirnakUyarici.exe`'nin kendisini bulunduğu klasörden çıkarma; yanındaki dosyalarla birlikte çalışır.
 
-Denemek için simgeye sağ tıkla → **Uyarıyı test et**: kırmızı parlamayı görürsün.
-Simgeye **çift tıklarsan** kamera önizlemesi açılır; elini ağzına götürünce noktaların
-kırmızıya döndüğünü görebilirsin.
+### 4. Bilgisayar açılınca kendiliğinden başlasın
 
-### 4. Bilgisayar her açıldığında otomatik başlat
+1. Programı aç. Sağ alttaki saatin yanında **kırmızı yuvarlak bir simge** belirir.
+   (Görmüyorsan saatin yanındaki **^** okuna tıkla.)
+2. Simgeye sağ tıkla → **Ayarlar…**
+3. **Windows açılınca otomatik başlat** kutusunu işaretle → **Kaydet**.
 
-Simgeye sağ tıkla → **Ayarlar…** → **Windows açılınca otomatik başlat** kutusunu işaretle →
-**Kaydet**. Artık bilgisayar her açıldığında program arka planda kendiliğinden başlar.
-Kapatmak için aynı kutunun işaretini kaldırman yeterli.
-
-> Bu ayar exe'nin bulunduğu yeri kaydeder. Proje klasörünü sonradan başka yere taşırsan
-> kutunun işaretini kaldırıp yeniden işaretle.
-
-### Sorun giderme
-
-| Sorun | Çözüm |
-|---|---|
-| "Kamera açılamadı" bildirimi | Zoom, Teams, Discord gibi kamerayı kullanan bir program açıksa kapat, sonra menüden **Devam et**. |
-| Kamera hiç açılmıyor | **Ayarlar → Gizlilik ve güvenlik → Kamera** içinde **Kamera erişimi** ve **Masaüstü uygulamalarının kameranıza erişmesine izin ver** açık olmalı. |
-| Birden fazla kamera var, yanlışı açılıyor | **Ayarlar…** → **Kamera** değerini 1, 2… yap. |
-| Uyarı geç geliyor / hiç gelmiyor | **Hassasiyet**'i artır ya da **Uyarı için bekleme** süresini kısalt. Önizlemede yüzünün algılandığından emin ol (ışık arkadan geliyorsa yüz bulunamayabilir). |
-| Çenemi tutarken bile uyarıyor | **Hassasiyet**'i azalt. |
-| Antivirüs .exe'yi engelliyor | PyInstaller ile üretilen imzasız programlarda olabilir; dosyayı ya da proje klasörünü istisnalara ekleyip `build_windows.bat`'ı yeniden çalıştır. |
-| Oyun tam ekrandayken parlama görünmüyor | Tam ekran oyunlar her şeyin üstünde durur; sesli uyarı yine çalar. Oyunu "pencereli tam ekran" modunda açarsan parlama da görünür. |
-
-Ayarlar `%APPDATA%\TirnakUyarici\config.json`, günlük dosyası `%APPDATA%\TirnakUyarici\uygulama.log`
-içinde durur. Sorun bildirirken günlük dosyasını eklemek işe yarar.
+Hepsi bu. Artık bilgisayarını her açtığında Tırnak Uyarıcı kendiliğinden çalışır.
 
 ---
 
 ## Kullanım
 
-Sistem tepsisindeki simgeye **sağ tıklayınca**:
+Kırmızı simgeye **sağ tıklayınca** şunlar çıkar:
 
-| Menü | Ne yapar |
+| Seçenek | Ne işe yarar |
 |---|---|
-| Duraklat / Devam et | Kamerayı tamamen kapatır / yeniden açar |
-| Kamera önizlemesi… | Algılanan el ve ağız noktalarını canlı gösterir (simgeye çift tıklamak da açar) |
-| Uyarıyı test et | Kırmızı parlamayı hemen gösterir |
-| Ayarlar… | Kamera, hassasiyet, bekleme süresi, ses, Windows ile başlatma |
-| Çıkış | Uygulamayı kapatır |
+| **Duraklat / Devam et** | Uyarıları bir süre kapatır, kamera da kapanır. Görüntülü görüşmeye girerken işine yarar. |
+| **Kamera önizlemesi…** | Kameranın seni nasıl gördüğünü gösterir. Elin ağzına yaklaşınca noktalar kırmızıya döner. |
+| **Uyarıyı test et** | Kırmızı uyarının nasıl göründüğünü hemen gösterir. |
+| **Ayarlar…** | Aşağıdaki ayarları değiştirir. |
+| **Çıkış** | Programı kapatır. |
 
-Kamera önizlemesindeki **Oran** değeri **Eşik** değerinin altına düştüğünde el ağızda sayılır.
+### Ayarlar
 
-## Geliştiriciler için
-
-Testler: `pip install -r requirements-dev.txt` ardından `python -m pytest --cov=tirnak_uyarici`.
-GitHub Actions her gönderimde testleri çalıştırır ve exe'yi Windows'ta `build_windows.bat` ile
-üretip `--self-test` ile sınar.
-
-## Nasıl çalışır?
-
-1. **MediaPipe** her karede elin 21, yüzün 478 noktasını bulur.
-2. Parmak uçları ile dudak noktaları arasındaki en kısa mesafe, iki göz arasındaki mesafeye
-   bölünür. Böylece kameraya yakın/uzak oturmak sonucu değiştirmez.
-3. El, yüzden çok daha büyük görünüyorsa (kameranın önünden geçiyorsa) yok sayılır.
-4. Oran eşiğin altında **ve** belirlenen süre boyunca kalırsa uyarı verilir; ardından birkaç
-   saniye tekrar uyarı verilmez.
-5. El ağzı kapatınca yüz algılaması kaybolabilir; bu yüzden ağzın son konumu 1 saniye hatırlanır.
-
-| Dosya | Görev |
+| Ayar | Ne değiştirir |
 |---|---|
-| `gesture_logic.py` | Mesafe, eşik, süre ve bekleme mantığı (saf fonksiyonlar, test edilebilir) |
-| `detector.py` | MediaPipe el + yüz tespiti |
-| `camera_worker.py` | Kamerayı arka planda okuyan iş parçacığı |
-| `alert_overlay.py` | Her ekranda kırmızı parlama penceresi |
-| `tray_app.py` | Sistem tepsisi menüsü ve parçaların bağlantısı |
-| `settings_dialog.py` | Ayarlar penceresi |
-| `config.py` | Ayarlar (`%APPDATA%\TirnakUyarici\config.json`) |
-| `platform_utils.py` | Windows uyarı sesi ve açılışta başlatma |
+| **Hassasiyet** | Yüksek: elin ağzına yaklaşınca bile uyarır. Düşük: sadece elin ağzına değince uyarır. |
+| **Uyarı için bekleme** | Elin ağzında ne kadar kalınca uyarı versin. Kısa yaparsan daha çabuk uyarır. |
+| **Tekrar uyarı aralığı** | Elin ağzında kalmaya devam ederse kaç saniyede bir tekrar uyarsın. |
+| **Uyarıda ses çal** | Kırmızı uyarıyla birlikte kısa bir ses de çalar. |
+| **Kamera** | Birden fazla kameran varsa hangisinin kullanılacağı. Genelde 0 doğrudur. |
+| **Windows açılınca otomatik başlat** | Bilgisayar açılınca program kendiliğinden başlar. |
 
-Model dosyaları (`models/*.task`) Google MediaPipe'ın resmi modelleridir.
+---
+
+## Sorun mu var?
+
+| Sorun | Ne yapmalı |
+|---|---|
+| Ekranda **"Windows bilgisayarınızı korudu"** yazıyor | **Ek bilgi** → **Yine de çalıştır**. Bu uyarı yalnızca ilk açılışta çıkar. |
+| **"Kamera açılamadı"** diyor | Zoom, Teams, Discord gibi kamerayı kullanan bir program açıksa kapat, sonra simgeden **Devam et**. |
+| Kamera hiç açılmıyor | Windows **Ayarlar → Gizlilik ve güvenlik → Kamera** bölümünde kamera erişimini aç. |
+| Uyarı geç geliyor ya da hiç gelmiyor | **Hassasiyet**'i artır. Yüzünün iyi aydınlandığından emin ol; arkandan gelen ışık seni görmeyi zorlaştırır. |
+| Çeneme dokununca bile uyarıyor | **Hassasiyet**'i azalt. |
+| Oyun oynarken kırmızı uyarı görünmüyor | Tam ekran oyunlar her şeyin üstünde durur, ama sesli uyarı yine çalar. |
+| `build_windows.bat` hata verdi | Pencerede ne yapman gerektiği yazar. Çözemezsen o ekranın fotoğrafını gönder. |

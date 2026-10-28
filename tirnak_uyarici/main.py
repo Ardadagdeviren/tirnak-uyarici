@@ -10,13 +10,15 @@ from PySide6.QtWidgets import QApplication, QMessageBox, QSystemTrayIcon
 
 from . import APP_ID, APP_NAME
 from .config import config_dir, load_settings
-from .tray_app import TrayApp
+from .self_test import SELF_TEST_FLAG, run_self_test
 
 LOCK_TIMEOUT_MS = 0
 
 
 def setup_logging() -> None:
-    handlers: list[logging.Handler] = [logging.StreamHandler()]
+    handlers: list[logging.Handler] = []
+    if sys.stderr is not None:  # Pencereli exe'de konsol yoktur.
+        handlers.append(logging.StreamHandler())
     try:
         config_dir().mkdir(parents=True, exist_ok=True)
         handlers.append(logging.FileHandler(config_dir() / "uygulama.log", encoding="utf-8"))
@@ -31,6 +33,11 @@ def setup_logging() -> None:
 
 def main() -> int:
     setup_logging()
+    if SELF_TEST_FLAG in sys.argv[1:]:
+        return run_self_test()
+
+    from .tray_app import TrayApp  # Ağır modüller; sınama modunda hata yakalanabilsin diye burada.
+
     app = QApplication(sys.argv)
     app.setApplicationName(APP_NAME)
     app.setOrganizationName(APP_ID)

@@ -51,6 +51,12 @@ echo [5/5] exe uretiliyor...
 if not exist "dist\TirnakUyarici\TirnakUyarici.exe" goto :missing_exe
 
 echo.
+echo exe sinaniyor (kamera acilmaz)...
+start "" /wait "dist\TirnakUyarici\TirnakUyarici.exe" --self-test
+if errorlevel 1 goto :self_test_failed
+echo Sinama basarili.
+
+echo.
 echo ============================================================
 echo  HAZIR: %CD%\dist\TirnakUyarici\TirnakUyarici.exe
 echo  TirnakUyarici klasorunun tamamini istedigin yere tasiyabilirsin.
@@ -79,6 +85,13 @@ echo HATA: Derleme bitti ama TirnakUyarici.exe olusmadi.
 echo Buyuk ihtimalle antivirus (Windows Defender) dosyayi sildi.
 echo Windows Guvenligi ^> Virus ve tehdit korumasi ^> Koruma gecmisi
 echo bolumunden dosyaya izin ver ya da bu klasoru dislamalara ekle.
+goto :end_fail
+
+:self_test_failed
+echo.
+echo HATA: exe olustu ama sinamada calismadi.
+echo Ayrintilar: %APPDATA%\TirnakUyarici\uygulama.log
+if defined CI type "%APPDATA%\TirnakUyarici\uygulama.log"
 goto :end_fail
 
 :fail

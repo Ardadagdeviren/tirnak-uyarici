@@ -11,7 +11,8 @@ a = Analysis(
     binaries=binaries,
     datas=datas,
     hiddenimports=[],
-    excludes=["matplotlib", "tkinter", "PySide6.QtWebEngineCore", "PySide6.Qt3DCore"],
+    # matplotlib dışlanmamalı: mediapipe.tasks.python.vision onu içe aktarıyor.
+    excludes=["tkinter", "PySide6.QtWebEngineCore", "PySide6.Qt3DCore"],
 )
 pyz = PYZ(a.pure)
 exe = EXE(

@@ -30,6 +30,7 @@ jobs:
 
       - name: .exe üret (kullanıcıların çalıştırdığı build_windows.bat ile)
         shell: cmd
+        timeout-minutes: 20
         run: build_windows.bat
 
       - name: Zip'le

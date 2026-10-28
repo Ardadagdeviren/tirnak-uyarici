@@ -6,13 +6,17 @@ yazısı çıkar.
 
 - Uyarı açık olan her şeyin üstünde görünür, ama işini bölmez; tıklamaya ve yazmaya devam edebilirsin.
 - Kamera görüntün hiçbir yere gönderilmez, kaydedilmez. Her şey kendi bilgisayarında kalır.
-- Saatin yanında küçük bir simge olarak sessizce çalışır.
+- Küçük bir simge olarak sessizce çalışır.
+- **Windows** ve **Mac**'te çalışır.
+
+Kurulum yalnızca bir kez yapılır, yaklaşık 10 dakika sürer.
+
+- [Windows'ta kurulum](#windowsta-kurulum)
+- [Mac'te kurulum](#macte-kurulum)
 
 ---
 
-## Kurulum
-
-Kurulum yalnızca bir kez yapılır, yaklaşık 10 dakika sürer.
+## Windows'ta kurulum
 
 ### 1. Python'u kur
 
@@ -51,9 +55,47 @@ Hepsi bu. Artık bilgisayarını her açtığında Tırnak Uyarıcı kendiliğin
 
 ---
 
+## Mac'te kurulum
+
+### 1. Python'u kur
+
+[python.org](https://www.python.org/downloads/macos/) adresinden **Python 3.12**'yi indirip kur.
+
+### 2. Programı oluştur
+
+1. Bu sayfanın üstündeki yeşil **Code** düğmesine, ardından **Download ZIP**'e tıkla.
+2. İnen zip dosyasına çift tıklayarak aç ve çıkan klasörü istediğin yere taşı (örneğin **Belgeler**).
+3. Klasördeki **`build_mac.command`** dosyasına çift tıkla.
+4. Bir Terminal penceresi açılır ve birkaç dakika çalışır. Bitince **HAZIR** yazar ve içinde
+   **`TirnakUyarici`** uygulaması bulunan bir klasör kendiliğinden açılır.
+
+> **Mac dosyayı açmana izin vermezse** ("tanımlanmamış geliştirici" uyarısı):
+> **Sistem Ayarları → Gizlilik ve Güvenlik** sayfasının en altında **Yine de Aç**'a tıkla.
+> Olmazsa **Terminal**'i aç, `bash ` yaz (sonunda bir boşluk bırak), `build_mac.command`
+> dosyasını Terminal penceresine sürükleyip bırak ve **Enter**'a bas.
+
+Bu adımı bir daha yapman gerekmez.
+
+### 3. Uygulamalar klasörüne taşı
+
+1. **`TirnakUyarici`** uygulamasını **Uygulamalar** klasörüne sürükle.
+2. Uygulamalar'dan aç. Kamera izni sorulunca **İzin Ver**'e tıkla.
+3. Sağ üstteki menü çubuğunda **kırmızı yuvarlak bir simge** belirir. Uygulama oradan yönetilir
+   (Dock'ta görünmez).
+
+### 4. Mac açılınca kendiliğinden başlasın
+
+1. **Sistem Ayarları → Genel → Oturum Açma Öğeleri**'ni aç.
+2. **Oturum açılınca aç** listesinin altındaki **+** düğmesine tıkla.
+3. **Uygulamalar** klasöründen **TirnakUyarici**'yi seç → **Aç**.
+
+Hepsi bu. Artık Mac'ini her açtığında Tırnak Uyarıcı kendiliğinden çalışır.
+
+---
+
 ## Kullanım
 
-Kırmızı simgeye **sağ tıklayınca** şunlar çıkar:
+Kırmızı simgeye tıklayınca (Windows'ta **sağ tıklayınca**) şunlar çıkar:
 
 | Seçenek | Ne işe yarar |
 |---|---|
@@ -72,7 +114,7 @@ Kırmızı simgeye **sağ tıklayınca** şunlar çıkar:
 | **Tekrar uyarı aralığı** | Elin ağzında kalmaya devam ederse kaç saniyede bir tekrar uyarsın. |
 | **Uyarıda ses çal** | Kırmızı uyarıyla birlikte kısa bir ses de çalar. |
 | **Kamera** | Birden fazla kameran varsa hangisinin kullanılacağı. Genelde 0 doğrudur. |
-| **Windows açılınca otomatik başlat** | Bilgisayar açılınca program kendiliğinden başlar. |
+| **Windows açılınca otomatik başlat** | Bilgisayar açılınca program kendiliğinden başlar (yalnızca Windows; Mac için yukarıdaki 4. adıma bak). |
 
 ---
 
@@ -80,10 +122,22 @@ Kırmızı simgeye **sağ tıklayınca** şunlar çıkar:
 
 | Sorun | Ne yapmalı |
 |---|---|
-| Ekranda **"Windows bilgisayarınızı korudu"** yazıyor | **Ek bilgi** → **Yine de çalıştır**. Bu uyarı yalnızca ilk açılışta çıkar. |
 | **"Kamera açılamadı"** diyor | Zoom, Teams, Discord gibi kamerayı kullanan bir program açıksa kapat, sonra simgeden **Devam et**. |
-| Kamera hiç açılmıyor | Windows **Ayarlar → Gizlilik ve güvenlik → Kamera** bölümünde kamera erişimini aç. |
 | Uyarı geç geliyor ya da hiç gelmiyor | **Hassasiyet**'i artır. Yüzünün iyi aydınlandığından emin ol; arkandan gelen ışık seni görmeyi zorlaştırır. |
 | Çeneme dokununca bile uyarıyor | **Hassasiyet**'i azalt. |
 | Oyun oynarken kırmızı uyarı görünmüyor | Tam ekran oyunlar her şeyin üstünde durur, ama sesli uyarı yine çalar. |
-| `build_windows.bat` hata verdi | Pencerede ne yapman gerektiği yazar. Çözemezsen o ekranın fotoğrafını gönder. |
+| Kurulum dosyası hata verdi | Pencerede ne yapman gerektiği yazar. Çözemezsen o ekranın fotoğrafını çek. |
+
+**Windows'ta**
+
+| Sorun | Ne yapmalı |
+|---|---|
+| Ekranda **"Windows bilgisayarınızı korudu"** yazıyor | **Ek bilgi** → **Yine de çalıştır**. Bu uyarı yalnızca ilk açılışta çıkar. |
+| Kamera hiç açılmıyor | Windows **Ayarlar → Gizlilik ve güvenlik → Kamera** bölümünde kamera erişimini aç. |
+
+**Mac'te**
+
+| Sorun | Ne yapmalı |
+|---|---|
+| Kamera iznini yanlışlıkla reddettim | **Sistem Ayarları → Gizlilik ve Güvenlik → Kamera**'da **TirnakUyarici**'yi aç, uygulamayı kapatıp yeniden aç. |
+| Menü çubuğunda simgeyi göremiyorum | Menü çubuğu doluysa simge gizlenebilir; birkaç simgeyi kapat ya da ekranı genişlet. |

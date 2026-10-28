@@ -32,6 +32,7 @@ set "VPY=%CD%\.venv\Scripts\python.exe"
 
 echo.
 echo [3/5] Paketler kuruluyor (ilk seferde birkac dakika surebilir)...
+"%VPY%" -m pip --version >nul 2>&1 || "%VPY%" -m ensurepip --upgrade >nul 2>&1
 "%VPY%" -m pip install --upgrade pip || goto :fail
 "%VPY%" -m pip install -r requirements.txt pyinstaller || goto :fail
 

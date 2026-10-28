@@ -28,8 +28,9 @@ jobs:
           QT_QPA_PLATFORM: offscreen
         run: python -m pytest -q --cov=tirnak_uyarici --cov-fail-under=80
 
-      - name: .exe üret
-        run: pyinstaller --noconfirm --clean tirnak_uyarici.spec
+      - name: .exe üret (kullanıcıların çalıştırdığı build_windows.bat ile)
+        shell: cmd
+        run: build_windows.bat
 
       - name: Zip'le
         shell: pwsh

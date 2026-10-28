@@ -2,7 +2,7 @@
 name = "tirnak-uyarici"
 version = "0.1.0"
 description = "El ağza gidince ekranda uyarı gösteren masaüstü uygulaması"
-requires-python = ">=3.10,<3.13"
+requires-python = ">=3.10"
 dependencies = [
     "mediapipe>=0.10.14",
     "opencv-python>=4.9",

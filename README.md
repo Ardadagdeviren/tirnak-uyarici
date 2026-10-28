@@ -51,9 +51,18 @@ kırmızıya döndüğünü görebilirsin.
 
 ### 3. yol: Kendin .exe üret
 
-Proje klasöründe **`build_windows.bat`** dosyasına çift tıkla. Gerekenleri kurar, testleri
-çalıştırır ve `dist\TirnakUyarici\TirnakUyarici.exe` dosyasını üretir. `TirnakUyarici`
-klasörünün tamamını istediğin yere taşıyabilirsin.
+> Hazır programı 1. yoldan indirebildiğin için bu adım zorunlu değil.
+
+1. **Python 3.12** kurulu olmalı (2. yolun 1. adımı).
+2. Projeyi **Code → Download ZIP** ile indir ve **önce bir klasöre çıkar**
+   (zip'in içinden çalıştırırsan dosyalar bulunamaz).
+3. Çıkan klasördeki **`build_windows.bat`** dosyasına çift tıkla.
+4. Pencere adım adım `[1/5] … [5/5]` ilerler; ilk seferde paket indirme birkaç dakika sürer.
+   Bitince `dist\TirnakUyarici` klasörü kendiliğinden açılır, içinde **`TirnakUyarici.exe`** vardır.
+   `TirnakUyarici` klasörünün tamamını istediğin yere taşıyabilirsin.
+
+Bir sorun olursa pencere kapanmaz; nedenini yazar (Python yok, zip çıkarılmamış,
+antivirüs exe'yi silmiş vb.). O ekranın görüntüsünü göndermen yeterli.
 
 ### Sorun giderme
 
@@ -88,7 +97,7 @@ Kamera önizlemesindeki **Oran** değeri **Eşik** değerinin altına düştüğ
 
 ## Geliştirme (Mac / Windows / Linux)
 
-Python 3.10–3.12 gerekir.
+Python 3.10 veya daha yenisi gerekir (3.12 önerilir).
 
 ```bash
 python3.12 -m venv .venv

@@ -8,61 +8,57 @@ Görüntü hiçbir yere gönderilmez ve kaydedilmez; tüm işlem bilgisayarında
 
 ---
 
-## Windows'ta çalıştırma
+## Windows'ta kurulum
 
-Üç yol var. Programcı değilsen **1. yol** yeterli.
+Kurulum dört adım: Python'u kur, `build_windows.bat`'ı çalıştır, exe'ye kısayol oluştur,
+otomatik başlatmayı aç. `build_windows.bat` **yalnızca bir kez** çalıştırılır; sonrasında
+program her zaman exe'den (ya da kısayolundan) açılır.
 
-### 1. yol: Hazır programı indir (en kolay)
+### 1. Python'u kur (bir kez)
 
-1. Bu sayfanın sağındaki **Releases** bölümüne tıkla (ya da depo adresinin sonuna `/releases` ekle).
-2. En üstteki sürümden **`TirnakUyarici-windows.zip`** dosyasını indir.
-3. Zip'e sağ tıkla → **Tümünü ayıkla…** → örneğin `C:\Programlar\TirnakUyarici` klasörüne çıkar.
-   > Zip'in içinden doğrudan çalıştırma; önce mutlaka klasöre çıkar.
-4. Çıkan klasördeki **`TirnakUyarici.exe`** dosyasına çift tıkla.
-5. **"Windows bilgisayarınızı korudu"** mavi ekranı çıkarsa: **Ek bilgi** → **Yine de çalıştır**.
-   (Program imzalı olmadığı için Windows ilk seferde böyle uyarır.)
-6. Sağ alttaki saatin yanında kırmızı yuvarlak bir simge belirir. Görünmüyorsa **^** (gizli
-   simgeler) okuna tıkla; simgeyi sürükleyip görev çubuğuna sabitleyebilirsin.
+[python.org](https://www.python.org/downloads/windows/) adresinden **Python 3.12** indirip kur.
+Kurulumun ilk ekranında **"Add python.exe to PATH"** kutusunu mutlaka işaretle.
 
-İlk denemede simgeye sağ tıklayıp **Uyarıyı test et**'i seç; kırmızı parlamayı görürsün.
-Ardından simgeye **çift tıkla**: kamera önizlemesi açılır, elini ağzına götürünce noktaların
+### 2. `build_windows.bat` ile exe'yi oluştur
+
+1. Bu sayfada **Code** → **Download ZIP** ile projeyi indir.
+2. Zip'e sağ tıkla → **Tümünü ayıkla…** → örneğin `C:\Programlar\TirnakUyarici` klasörüne çıkar.
+   > Zip'in içinden çalıştırma; önce mutlaka klasöre çıkar.
+3. Çıkan klasördeki **`build_windows.bat`** dosyasına çift tıkla.
+4. Pencere adım adım `[1/5] … [5/5]` ilerler; ilk seferde paketler indiği için birkaç dakika sürer.
+   Sonunda **"HAZIR"** yazar ve `dist\TirnakUyarici` klasörü kendiliğinden açılır.
+   İçinde **`TirnakUyarici.exe`** vardır.
+
+Bir sorun olursa pencere kapanmaz ve nedenini yazar (Python yok, zip çıkarılmamış,
+antivirüs exe'yi silmiş vb.). O ekranın görüntüsünü göndermen yeterli.
+
+### 3. Kısayol oluştur ve istediğin yere taşı
+
+1. `dist\TirnakUyarici` klasöründeki **`TirnakUyarici.exe`**'ye sağ tıkla →
+   **Diğer seçenekleri göster** → **Kısayol oluştur**.
+2. Oluşan kısayolu istediğin yere taşı: masaüstü, görev çubuğu, Başlat menüsü…
+   Bundan sonra programı hep bu kısayoldan açarsın.
+
+> Exe'yi tek başına klasörün dışına taşıma; yanındaki `_internal` klasörüne ihtiyaç duyar.
+> Taşımak istediğin şey **kısayol** olsun.
+
+İlk açılışta **"Windows bilgisayarınızı korudu"** mavi ekranı çıkarsa: **Ek bilgi** →
+**Yine de çalıştır** (program imzalı olmadığı için Windows bir kez böyle uyarır).
+Açılınca sağ alttaki saatin yanında kırmızı yuvarlak bir simge belirir; görünmüyorsa
+**^** (gizli simgeler) okuna tıkla.
+
+Denemek için simgeye sağ tıkla → **Uyarıyı test et**: kırmızı parlamayı görürsün.
+Simgeye **çift tıklarsan** kamera önizlemesi açılır; elini ağzına götürünce noktaların
 kırmızıya döndüğünü görebilirsin.
 
-**Her açılışta otomatik başlasın istersen:** simgeye sağ tıkla → **Ayarlar…** →
-**Windows açılınca otomatik başlat** → **Kaydet**.
+### 4. Bilgisayar her açıldığında otomatik başlat
 
-### 2. yol: Kaynak koddan çalıştır
+Simgeye sağ tıkla → **Ayarlar…** → **Windows açılınca otomatik başlat** kutusunu işaretle →
+**Kaydet**. Artık bilgisayar her açıldığında program arka planda kendiliğinden başlar.
+Kapatmak için aynı kutunun işaretini kaldırman yeterli.
 
-1. [python.org](https://www.python.org/downloads/windows/) adresinden **Python 3.12** indirip kur.
-   Kurulumun ilk ekranında **"Add python.exe to PATH"** kutusunu işaretle.
-2. Bu sayfada **Code** → **Download ZIP** ile projeyi indir ve bir klasöre çıkar
-   (ya da `git clone` ile al). Klasör yolunda Türkçe karakter olmamasına dikkat et.
-3. O klasörde adres çubuğuna `cmd` yazıp Enter'a bas; açılan pencerede sırayla:
-
-   ```bat
-   py -3.12 -m venv .venv
-   .venv\Scripts\activate
-   pip install -r requirements.txt
-   python -m tirnak_uyarici
-   ```
-
-   Sonraki açılışlarda sadece son iki satır yeterli
-   (`.venv\Scripts\activate` ve `python -m tirnak_uyarici`).
-
-### 3. yol: Kendin .exe üret
-
-> Hazır programı 1. yoldan indirebildiğin için bu adım zorunlu değil.
-
-1. **Python 3.12** kurulu olmalı (2. yolun 1. adımı).
-2. Projeyi **Code → Download ZIP** ile indir ve **önce bir klasöre çıkar**
-   (zip'in içinden çalıştırırsan dosyalar bulunamaz).
-3. Çıkan klasördeki **`build_windows.bat`** dosyasına çift tıkla.
-4. Pencere adım adım `[1/5] … [5/5]` ilerler; ilk seferde paket indirme birkaç dakika sürer.
-   Bitince `dist\TirnakUyarici` klasörü kendiliğinden açılır, içinde **`TirnakUyarici.exe`** vardır.
-   `TirnakUyarici` klasörünün tamamını istediğin yere taşıyabilirsin.
-
-Bir sorun olursa pencere kapanmaz; nedenini yazar (Python yok, zip çıkarılmamış,
-antivirüs exe'yi silmiş vb.). O ekranın görüntüsünü göndermen yeterli.
+> Bu ayar exe'nin bulunduğu yeri kaydeder. Proje klasörünü sonradan başka yere taşırsan
+> kutunun işaretini kaldırıp yeniden işaretle.
 
 ### Sorun giderme
 
@@ -73,7 +69,7 @@ antivirüs exe'yi silmiş vb.). O ekranın görüntüsünü göndermen yeterli.
 | Birden fazla kamera var, yanlışı açılıyor | **Ayarlar…** → **Kamera** değerini 1, 2… yap. |
 | Uyarı geç geliyor / hiç gelmiyor | **Hassasiyet**'i artır ya da **Uyarı için bekleme** süresini kısalt. Önizlemede yüzünün algılandığından emin ol (ışık arkadan geliyorsa yüz bulunamayabilir). |
 | Çenemi tutarken bile uyarıyor | **Hassasiyet**'i azalt. |
-| Antivirüs .exe'yi engelliyor | PyInstaller ile üretilen imzasız programlarda olabilir; dosyayı istisnalara ekle ya da 2. yolu kullan. |
+| Antivirüs .exe'yi engelliyor | PyInstaller ile üretilen imzasız programlarda olabilir; dosyayı ya da proje klasörünü istisnalara ekleyip `build_windows.bat`'ı yeniden çalıştır. |
 | Oyun tam ekrandayken parlama görünmüyor | Tam ekran oyunlar her şeyin üstünde durur; sesli uyarı yine çalar. Oyunu "pencereli tam ekran" modunda açarsan parlama da görünür. |
 
 Ayarlar `%APPDATA%\TirnakUyarici\config.json`, günlük dosyası `%APPDATA%\TirnakUyarici\uygulama.log`
@@ -95,23 +91,11 @@ Sistem tepsisindeki simgeye **sağ tıklayınca**:
 
 Kamera önizlemesindeki **Oran** değeri **Eşik** değerinin altına düştüğünde el ağızda sayılır.
 
-## Geliştirme (Mac / Windows / Linux)
+## Geliştiriciler için
 
-Python 3.10 veya daha yenisi gerekir (3.12 önerilir).
-
-```bash
-python3.12 -m venv .venv
-source .venv/bin/activate          # Windows: .venv\Scripts\activate
-pip install -r requirements-dev.txt
-python -m tirnak_uyarici           # uygulamayı başlat
-python -m pytest --cov=tirnak_uyarici
-```
-
-**Yeni sürüm yayınlamak:** `git tag v0.2.0 && git push origin v0.2.0` — GitHub Actions Windows'ta
-testleri çalıştırır, `.exe`'yi üretir ve zip'i Releases sayfasına koyar. `main` dalına yapılan
-her gönderimde de derleme yapılır; zip'i Actions sekmesinden indirebilirsin.
-
-> PyInstaller başka bir işletim sistemi için derleme yapamaz; `.exe` her zaman Windows'ta üretilir.
+Testler: `pip install -r requirements-dev.txt` ardından `python -m pytest --cov=tirnak_uyarici`.
+GitHub Actions her gönderimde testleri çalıştırır ve exe'yi Windows'ta `build_windows.bat` ile
+üretip `--self-test` ile sınar.
 
 ## Nasıl çalışır?
 
